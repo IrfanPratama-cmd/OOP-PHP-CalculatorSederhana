@@ -1,6 +1,7 @@
 <?php
 class Connection
 {
+    // Koneksi ke database
     public function get_connection()
     {
         $host = "localhost";

@@ -3,19 +3,22 @@ require 'database.php';
 class Calculator extends Connection
 {
 
-    public $bil1;
-    public $bil2;
-    public $operasi;
+    public $bil1; // Object bilangan 1
+    public $bil2; // Object bilangan 2
+    public $operasi; // Object operasi
 
+
+    // Method Construct
     public function __construct($bil1, $bil2, $operasi)
     {
         $this->bil1 = $bil1;
         $this->bil2 = $bil2;
         $this->operasi = $operasi;
 
-        $this->conn = $this->get_connection();
+        $this->conn = $this->get_connection(); // Memanggil koneksi database
     }
 
+    //Method perhitungan operasi
     public function calcMethod()
     {
         switch ($this->operasi) {
@@ -32,7 +35,6 @@ class Calculator extends Connection
                 $hasil = $this->bil1 / $this->bil2;
                 break;
             case 'pangkat':
-                // $hasil = $this->bil1 * $this->bil1;
                 $hasil = pow($this->bil1, $this->bil2);
                 break;
             case 'modulo':
@@ -43,23 +45,18 @@ class Calculator extends Connection
                 break;
         }
 
+        // Input perhitungan kalkulator ke database
         extract($_POST);
         $bil1;
         $bil2;
         $operasi;
         $hasil;
+        $timestamp;
 
         $queryinput = "INSERT INTO calculator
-        VALUES ('$bil1', '$bil2', '$operasi', '$hasil')";
+        VALUES ('$timestamp','$bil1', '$bil2', '$operasi', '$hasil')";
         $this->conn->query($queryinput);
 
         return $hasil;
     }
-
-    // public function insert($bil1, $bil2, $operasi, $hasil)
-    // {
-    //     $queryinput = "INSERT INTO calculator
-    //     VALUES ('$bil1', '$bil2', '$operasi', '$hasil')";
-    //     $this->conn->query($queryinput);
-    // }
 }

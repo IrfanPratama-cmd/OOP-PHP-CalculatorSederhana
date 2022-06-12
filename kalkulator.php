@@ -8,11 +8,11 @@ $bil1;
 $bil2;
 $operasi;
 
-$calculator = new Calculator($bil1, $bil2, $operasi);
-// echo $calculator->calcMethod();
+$calculator = new Calculator($bil1, $bil2, $operasi); // Memanggil class Calculator
 
 ?>
 
+<!-- Tampilan UI hasil perhitungan kalkulator -->
 <html>
 
 <h2>Hasil</h2>

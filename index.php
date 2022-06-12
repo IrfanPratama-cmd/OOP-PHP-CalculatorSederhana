@@ -6,7 +6,7 @@
 
     <meta charset="utf-8">
 
-    <title>PHP Calculator</title>
+    <title>Kalkulator OOP</title>
 
 
 </head>
@@ -14,9 +14,12 @@
 <body>
 
 
-    <h2>OOP calculator</h2>
+    <h2>Kalkulator OOP</h2>
     <br>
+
+    <!-- Input angka -->
     <form action="kalkulator.php" method="POST">
+        <input type="hidden" name="timestamp" value="<?= date("d/m/Y h:i:s"); ?>">
         <input type="text" name="bil1">
         <input type="text" name="bil2">
         <select name="operasi">
