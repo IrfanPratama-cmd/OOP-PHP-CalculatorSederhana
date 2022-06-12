@@ -32,7 +32,8 @@ class Calculator extends Connection
                 $hasil = $this->bil1 / $this->bil2;
                 break;
             case 'pangkat':
-                $hasil = $this->bil1 * $this->bil1;
+                // $hasil = $this->bil1 * $this->bil1;
+                $hasil = pow($this->bil1, $this->bil2);
                 break;
             case 'modulo':
                 $hasil = $this->bil1 % $this->bil2;
